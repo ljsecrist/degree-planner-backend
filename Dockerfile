@@ -7,8 +7,11 @@ RUN apt-get update && apt-get install -y maven
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy the project files into the container
-COPY . /app
+# Copy only the backend folder's contents into the container
+COPY backend /app
+
+# Set the correct working directory where pom.xml is located
+WORKDIR /app
 
 # Build the project
 RUN mvn clean package
