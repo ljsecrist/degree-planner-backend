@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . /app
 
 # Install dependencies and build the project
-RUN ./mvnw clean package
+RUN mvn clean package
 
 # Expose the port your backend runs on
 EXPOSE 8080
