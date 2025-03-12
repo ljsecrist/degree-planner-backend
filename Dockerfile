@@ -1,13 +1,16 @@
 # Use an official Java runtime as a parent image
 FROM eclipse-temurin:21-jdk
 
+# Install Maven
+RUN apt-get update && apt-get install -y maven
+
 # Set the working directory inside the container
 WORKDIR /app
 
 # Copy the project files into the container
 COPY . /app
 
-# Install dependencies and build the project
+# Build the project
 RUN mvn clean package
 
 # Expose the port your backend runs on
